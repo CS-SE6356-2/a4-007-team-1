@@ -5,7 +5,8 @@ public class ShoppingCart {
 	private ArrayList items;
 	
 	public ShoppingCart() {
-		items = new ArrayList();
+		items = new ArrayList(0);
+                
 	}
 	
 	public double getBalance() {
@@ -21,11 +22,12 @@ public class ShoppingCart {
 		items.add(item);
 	}
 	
-	public void removeItem(Product item)
+	public void removeItem(Product item){
 			throws ProductNotFoundException {
-		if (!items.remove(item)) {
-			throw new ProductNotFoundException();}
-	}
+                            if (!items.remove(item)) {
+                                throw new ProductNotFoundException();}
+                        }
+        }
 	
 	public int getItemCount() {
 		return items.size();
