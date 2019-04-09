@@ -1,9 +1,15 @@
+
 // This class is based on being a container for Product instances
 
 import java.util.*;
 
+import org.junit.*;
+
+import junit.*;
+
 public class ShoppingCart {
 	
+  
 	// Private attributes
 	private ArrayList<Product> items;
 	
@@ -25,12 +31,11 @@ public class ShoppingCart {
 		}
 		return balance;
 	}
-	
+
 	public int getItemCount() 
 	{
 		return items.size();
 	}
-	
 	
 	// Utility methods
 	public void addItem(Product item) 
@@ -42,11 +47,17 @@ public class ShoppingCart {
 	{
 		if (!items.remove(item)) {
 			throw new ProductNotFoundException();}
+		else {
+			items.remove(item);}//Actually removes the item if it exists
 	}
 	
 	public void empty() 
 	{
 		items.clear();
 	}
+	
+	
+	
 }
+
 
