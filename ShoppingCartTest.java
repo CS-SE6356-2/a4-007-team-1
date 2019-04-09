@@ -1,8 +1,24 @@
+// In this class we test the code given to us for Assignment 4
+
+
 import static org.junit.jupiter.api.Assertions.*;
 
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ShoppingCartTest {
+	
+	// Testing ShoppingCart object
+	private ShoppingCart test;
+	
+	
+	// Initialization of the test object
+	@BeforeEach
+	public void setUp()
+	{
+		test = new ShoppingCart();
+	}
 
 	
 	// This test here is designed to implement the JUnit test unit and confirm that the shopping cart does indeed
@@ -11,7 +27,6 @@ public class ShoppingCartTest {
 	public void shouldCreatEmpty() 
 	{
 		// Create test object and see if it is empty.
-		ShoppingCart test = new ShoppingCart();
 		assertEquals(test.getItemCount(), 0);
 	}
 	
@@ -22,11 +37,39 @@ public class ShoppingCartTest {
 	public void shouldEmptyProper() 
 	{
 		// Create test object, populate and then empty
-		ShoppingCart test = new ShoppingCart();
 		test.addItem(new Product("A", 1.00));
 		test.addItem(new Product("B", 2.00));
 		test.addItem(new Product("C", 3.00));
 		test.empty();
 		assertEquals(test.getItemCount(), 0);
+	}
+	
+	
+	// This test here is designed to implement the JUnit test unit and confirm that the item count increments
+	@Test
+	public void itemsShouldIncrement()
+	{        
+	    // adds a new item to the cart
+	    test.addItem(new Product ("P", 25.50));
+	    
+	    // test to see if new balance = old balance plus new item
+	    assertEquals(test.getItemCount(), 1);
+	}
+	
+	
+	// This test here is designed to implement the JUnit test unit and confirm that the balance total changes
+	// as an item is added
+	@Test
+	public void balanceShouldAdd()
+	{    
+	    // get the current balance and create an arbitrary value
+	    double balance = test.getBalance();
+	    double P = 25.50;
+	    
+	    // adds a new item to the cart
+	    test.addItem(new Product ("P", 25.50));
+	    
+	    // test to see if new balance = old balance plus new item
+	    assertEquals(test.getBalance(), balance + P);
 	}
 }
