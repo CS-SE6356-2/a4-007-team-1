@@ -11,7 +11,7 @@ public class ShoppingCart {
 	private ArrayList items;
 	
 	public ShoppingCart() {
-		items = new ArrayList();
+		items = new ArrayList(0);
 	}
 	
 	public double getBalance() {
