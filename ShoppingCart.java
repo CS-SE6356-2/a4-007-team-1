@@ -1,4 +1,10 @@
+import static org.junit.Assert.*;
+
 import java.util.*;
+
+import org.junit.*;
+
+import junit.*;
 
 public class ShoppingCart {
 	
@@ -17,6 +23,7 @@ public class ShoppingCart {
 		return balance;
 	}
 	
+	
 	public void addItem(Product item) {
 		items.add(item);
 	}
@@ -25,6 +32,8 @@ public class ShoppingCart {
 			throws ProductNotFoundException {
 		if (!items.remove(item)) {
 			throw new ProductNotFoundException();}
+		else {
+			items.remove(item);}//Actually removes the item if it exists
 	}
 	
 	public int getItemCount() {
@@ -34,5 +43,9 @@ public class ShoppingCart {
 	public void empty() {
 		items.clear();
 	}
+	
+	
+	
 }
+
 
